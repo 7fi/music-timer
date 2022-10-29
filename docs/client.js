@@ -26,10 +26,12 @@ function setTime() {
 }
 
 function reloaded() {
-  curTime = JSON.parse(localStorage.getItem('curTime')).time
-  breakTime = JSON.parse(localStorage.getItem('curTime')).breakTime
-  focusTime = JSON.parse(localStorage.getItem('curTime')).focusTime
-  setStatus(JSON.parse(localStorage.getItem('curTime')).curStatus)
+  if (localStorage.getItem('curtime') != null) {
+    curTime = JSON.parse(localStorage.getItem('curTime')).time
+    breakTime = JSON.parse(localStorage.getItem('curTime')).breakTime
+    focusTime = JSON.parse(localStorage.getItem('curTime')).focusTime
+    setStatus(JSON.parse(localStorage.getItem('curTime')).curStatus)
+  }
 }
 
 function setStatus(inputStatus) {
