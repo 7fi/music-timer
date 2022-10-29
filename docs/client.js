@@ -65,6 +65,7 @@ setInterval(() => {
     let curMin = curTime / 60 > 9 ? Math.floor(curTime / 60) : '0' + Math.floor(curTime / 60)
     let curSec = curTime % 60 > 9 ? curTime % 60 : '0' + (curTime % 60)
     timeRemainingEl.textContent = `${curMin}:${curSec}`
+    document.title = `${curMin}:${curSec} ${curStatus}`
     console.log(curTime)
     if (curTime <= 0) {
       if (curStatus == 'Focus') {
