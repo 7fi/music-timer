@@ -26,7 +26,7 @@ function setTime() {
 }
 
 function reloaded() {
-  if (localStorage.getItem('curtime') != null) {
+  if (localStorage.getItem('curTime') != null) {
     curTime = JSON.parse(localStorage.getItem('curTime')).time
     breakTime = JSON.parse(localStorage.getItem('curTime')).breakTime
     focusTime = JSON.parse(localStorage.getItem('curTime')).focusTime

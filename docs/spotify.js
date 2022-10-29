@@ -1,7 +1,7 @@
 /* Mostly from https://github.com/makeratplay/SpotifyWebAPI/blob/main/app.js */
 
-var redirect_uri = 'https://7fi.github.io/music-timer/'
-// var redirect_uri = 'http://127.0.0.1:5500/docs/'
+// var redirect_uri = 'https://7fi.github.io/music-timer/'
+var redirect_uri = 'http://127.0.0.1:5500/docs/'
 
 var client_id = ''
 var client_secret = ''
@@ -209,7 +209,7 @@ function play() {
 
 function resume() {
   if (!currentlyPlayingStatus) {
-    callApi('PUT', PLAY, JSON.stringify({}), handleApiResponse)
+    callApi('PUT', PLAY + '?device_id=' + deviceId(), JSON.stringify({}), handleApiResponse)
   }
 }
 
