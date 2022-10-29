@@ -1,0 +1,79 @@
+:root{
+  --col2:#ccc;
+  --radius:5px;
+}
+
+body{
+  margin: 0;
+}
+
+#tokenSection{
+  display: none;
+}
+#mainSection{
+  display: none;
+}
+#timeLabel{
+  display: none;
+}
+
+#albumImage{
+  width: 100px;
+  margin: 5px;
+  border-radius: var(--radius);
+}
+
+#trackTitle{
+  font-size:2em;
+}
+
+#trackArtist{
+  font-size:1.2em;
+}
+
+#title{
+  font-size: 2em;
+  display: inline;
+}
+
+.btn{
+  height: 1.5em;
+}
+
+.controls{
+  display: flex;
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  place-content: center;
+}
+.section{
+  background-color: var(--col2);
+  border-radius: var(--radius);
+  width: fit-content;
+  padding: 5px;
+  margin: 10px;
+}
+
+.curPlaying{
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+.curInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap:5px;
+}
+#timeLabel{
+  text-align: right;
+}
+
+.timeInputs{
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+}

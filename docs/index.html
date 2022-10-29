@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lofi Timer</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/2e5caad16b.js" crossorigin="anonymous"></script>
+    <script src="client.js" defer></script>
+    <script src="spotify.js" defer></script>
+  </head>
+  <body onload="onPageLoad()">
+    <div id="tokenSection" class="row">
+      <div class="col">
+        <div class="">
+          <label for="clientId" class="">Client ID</label>
+          <input type="text" class="" id="clientId" placeholder="" />
+        </div>
+        <div class="">
+          <label for="clientSecret" class="">Client Secret</label>
+          <input type="text" class="" id="clientSecret" placeholder="" />
+        </div>
+        <input class="btn" type="button" onclick="requestAuthorization()" value="Request Authorization" /><br />
+      </div>
+    </div>
+    <div id="mainSection">
+      <div class="section">
+        <label for="devices" class="form-label">Devices</label>
+        <select id="devices" class=""></select>
+        <button class="btn" onclick="refreshDevices()">Refresh Devices</button>
+        <button class="btn" onclick="transfer()">Transfer</button>
+      </div>
+
+      <div class="section">
+        <label for="playlists" class="">Playlists</label>
+        <select id="playlists" class=""></select>
+        <button class="btn" onclick="refreshPlaylists()">Refresh Playlists</button>
+      </div>
+
+      <!-- <div class="">
+        <label for="tracks" class="">Tracks</label>
+        <select id="tracks" class="">
+        </select>
+        <button class="btn" onclick="fetchTracks()">Fetch Tracks</button>
+    </div> -->
+
+      <div class="timeInputs section">
+        <div>
+          <label>Focus Time</label>
+          <input type="number" name="Focus Time" id="focusTime" />
+        </div>
+        <div>
+          <label>Break Time</label>
+          <input type="number" name="Break Time" id="breakTime" />
+        </div>
+        <div>
+          <button id="setTime">Set</button>
+          <button id="stopTime">Stop</button>
+        </div>
+      </div>
+
+      <div class="curPlaying section">
+        <div style="display: flex">
+          <!-- <div id="title"> Currently Playing</div> -->
+          <div class="curInfo">
+            <div id="trackTitle"></div>
+            <div id="trackArtist"></div>
+            <button class="btn fa-solid fa-refresh" onclick="currentlyPlaying()"></button>
+          </div>
+          <img id="albumImage" src="" />
+        </div>
+        <label id="timeLabel"><span id="statusLabel"></span> Time Remaining: <span id="timeRemainingEl"></span></label>
+      </div>
+
+      <div class="controls">
+        <button class="btn fa-solid fa-lg fa-backward" onclick="previous()"></button>
+        <button class="btn fa-solid fa-lg fa-play" onclick="play()"></button>
+        <button class="btn fa-solid fa-lg fa-pause" onclick="pause()"></button>
+        <button class="btn fa-solid fa-lg fa-forward" onclick="next()"></button>
+      </div>
+    </div>
+  </body>
+</html>
