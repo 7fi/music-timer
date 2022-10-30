@@ -44,6 +44,7 @@ function onPageLoad() {
       fetchTracks()
     }
   }
+  setInterval(() => currentlyPlaying(), 15 * 1000)
 }
 
 function handleRedirect() {
@@ -190,9 +191,9 @@ function removeAllItems(elementId) {
   }
 }
 
-function play() {
-  let playlist_id = document.getElementById('playlists').value
-  let trackindex = document.getElementById('tracks').value
+function play(playlistId) {
+  let playlist_id = playlistId ? playlistId : document.getElementById('playlists').value
+  // let trackindex = document.getElementById('tracks').value
   let album = ''
   let body = {}
   // console.log(playlist_id)
@@ -202,9 +203,19 @@ function play() {
     body.context_uri = 'spotify:playlist:' + playlist_id
   }
   body.offset = {}
-  body.offset.position = trackindex.length > 0 ? Number(trackindex) : 0
+  // body.offset.position = trackindex.length > 0 ? Number(trackindex) : 0
+  body.offset.position = 0
   body.offset.position_ms = 0
   callApi('PUT', PLAY + '?device_id=' + deviceId(), JSON.stringify(body), handleApiResponse)
+}
+function playPlaylist(playlistId) {
+  //4kAqBBEZQsBIXMIJl6u8tO
+  let body = {}
+  if (playlistId != undefined) {
+    body.context_uri = 'spotify:playlist:' + playlistId
+  }
+  callApi('PUT', PLAY + '?device_id=' + deviceId(), JSON.stringify(body), handleApiResponse)
+  next()
 }
 
 function resume() {
@@ -293,8 +304,10 @@ function handleCurrentlyPlayingResponse() {
     var data = JSON.parse(this.responseText)
     console.log(data)
     currentlyPlayingStatus = data.is_playing
+
     if (data.item != null) {
       document.getElementById('albumImage').src = data.item.album.images[0].url
+      document.head.children[0].href = data.item.album.images[0].url
       document.getElementById('trackTitle').innerHTML = data.item.name
       document.getElementById('trackArtist').innerHTML = data.item.artists[0].name
     }

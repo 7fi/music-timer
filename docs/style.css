@@ -77,3 +77,6 @@ body{
   flex-direction: column;
   gap:5px;
 }
+.timeInputs input {
+  width: 3rem;
+}

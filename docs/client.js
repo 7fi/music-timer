@@ -66,7 +66,7 @@ setInterval(() => {
     let curSec = curTime % 60 > 9 ? curTime % 60 : '0' + (curTime % 60)
     timeRemainingEl.textContent = `${curMin}:${curSec}`
     document.title = `${curMin}:${curSec} ${curStatus}`
-    console.log(curTime)
+    // console.log(curTime)
     if (curTime <= 0) {
       if (curStatus == 'Focus') {
         setStatus('Break')
