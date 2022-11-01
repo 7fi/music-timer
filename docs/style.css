@@ -1,10 +1,15 @@
 :root{
+  --col1:#eee;
   --col2:#ccc;
+  --col3:#999;
+  --col4:#777;
   --radius:5px;
 }
-
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,500&display=swap'); */
 body{
   margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--col1);
 }
 
 #tokenSection{
@@ -25,6 +30,7 @@ body{
 
 #trackTitle{
   font-size:2em;
+  font-weight: 800;
 }
 
 #trackArtist{
@@ -38,29 +44,54 @@ body{
 
 .btn{
   height: 1.5em;
+  background-color: var(--col1);
+  border-style: none;
+  margin: 2px;
+  border-radius: var(--radius);
+}
+.btn:hover{
+  background-color: var(--col3);
+  box-shadow: #00000055 2px 2px 2px;
+  transform: scale(1.1);
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  top:0;
+  right:0;
+  position:fixed
 }
 
-.controls{
+/* .controls{
+  border-radius: var(--radius);
   display: flex;
-  position: fixed;
-  bottom: 10px;
-  width: 100%;
-  place-content: center;
-}
+  float: right;
+  width: fit-content;
+  background-color: var(--col3);
+  padding: 5px;
+} */
+
 .section{
   background-color: var(--col2);
   border-radius: var(--radius);
   width: fit-content;
   padding: 5px;
   margin: 10px;
+  display: flex;
+  gap:3px;
+}
+.controls{
+  margin-top: 0;
 }
 
 .curPlaying{
-  position: absolute;
-  top: 0;
-  right: 0;
+  /* position: absolute; */
+  /* top: 0; */
+  /* right: 0; */
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
 }
 .curInfo{
   display: flex;
@@ -78,5 +109,13 @@ body{
   gap:5px;
 }
 .timeInputs input {
-  width: 3rem;
+  width: 4rem;
+}
+.selectBox{
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--col1);
+}
+.selectBox:hover{
+  background-color: var(--col3);
 }

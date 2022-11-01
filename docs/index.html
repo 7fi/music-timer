@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lofi Timer</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/2e5caad16b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">    <script src="https://kit.fontawesome.com/2e5caad16b.js" crossorigin="anonymous"></script>
     <script src="client.js" defer></script>
     <script src="spotify.js" defer></script>
   </head>
@@ -27,15 +30,15 @@
     </div>
     <div id="mainSection">
       <div class="section">
-        <label for="devices" class="form-label">Devices</label>
-        <select id="devices" class=""></select>
+        <label for="devices" class="">Devices</label>
+        <select id="devices" class="selectBox"></select>
         <button class="btn" onclick="refreshDevices()">Refresh Devices</button>
         <button class="btn" onclick="transfer()">Transfer</button>
       </div>
 
       <div class="section">
         <label for="playlists" class="">Playlists</label>
-        <select id="playlists" class=""></select>
+        <select id="playlists" class="selectBox"></select>
         <button class="btn fa-solid fa-refresh" onclick="refreshPlaylists()"></button>
         <button class="btn" onclick="playPlaylist('4kAqBBEZQsBIXMIJl6u8tO')">Lofi</button>
       </div>
@@ -48,39 +51,44 @@
     </div> -->
 
       <div class="timeInputs section">
+        <label>Timer Controls:</label>
         <div>
           <label>Focus Time</label>
-          <input type="number" name="Focus Time" id="focusTime" />
+          <input type="number" name="Focus Time" id="focusTime" placeholder="(mins)" />
         </div>
         <div>
           <label>Break Time</label>
-          <input type="number" name="Break Time" id="breakTime" />
+          <input type="number" name="Break Time" id="breakTime" placeholder="(mins)" />
         </div>
-        <div>
-          <button id="setTime">Set</button>
-          <button id="stopTime">Stop</button>
+        <div style="display: flex; justify-content: flex-end;">
+          <button id="setTime" class="btn fa-solid fa-play"></button>
+          <button id="pauseTime" class="btn fa-solid fa-pause"></button>
+          <button id="stopTime" class="btn fa-solid fa-stop"></button>
         </div>
       </div>
 
-      <div class="curPlaying section">
-        <div style="display: flex">
-          <!-- <div id="title"> Currently Playing</div> -->
-          <div class="curInfo">
-            <div id="trackTitle"></div>
-            <div id="trackArtist"></div>
-            <button class="btn fa-solid fa-refresh" onclick="currentlyPlaying()"></button>
+      <div class="container">
+        <div class="curPlaying section">
+          <div style="display: flex;">
+            <!-- <div id="title"> Currently Playing</div> -->
+            <div class="curInfo">
+              <div id="trackTitle"></div>
+              <div id="trackArtist"></div>
+              <button class="btn fa-solid fa-refresh" onclick="currentlyPlaying()"></button>
+            </div>
+            <img id="albumImage" src="" />
           </div>
-          <img id="albumImage" src="" />
+          <label id="timeLabel"><span id="statusLabel"></span> Time Remaining: <span id="timeRemainingEl"></span></label>
         </div>
-        <label id="timeLabel"><span id="statusLabel"></span> Time Remaining: <span id="timeRemainingEl"></span></label>
+      
+        <div class="controls section">
+          <button class="btn fa-solid fa-lg fa-backward" onclick="previous()"></button>
+          <button class="btn fa-solid fa-lg fa-play" onclick="play()"></button>
+          <button class="btn fa-solid fa-lg fa-pause" onclick="pause()"></button>
+          <button class="btn fa-solid fa-lg fa-forward" onclick="next()"></button>
+        </div>
       </div>
 
-      <div class="controls">
-        <button class="btn fa-solid fa-lg fa-backward" onclick="previous()"></button>
-        <button class="btn fa-solid fa-lg fa-play" onclick="play()"></button>
-        <button class="btn fa-solid fa-lg fa-pause" onclick="pause()"></button>
-        <button class="btn fa-solid fa-lg fa-forward" onclick="next()"></button>
-      </div>
     </div>
   </body>
 </html>
