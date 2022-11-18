@@ -120,7 +120,7 @@ function handleAuthorizationResponse() {
     onPageLoad()
   } else {
     console.log(this.responseText)
-    alert(this.responseText)
+    // alert(this.responseText)
   }
 }
 
@@ -138,7 +138,7 @@ function handleDevicesResponse() {
     refreshAccessToken()
   } else {
     console.log(this.responseText)
-    alert(this.responseText)
+    // alert(this.responseText)
   }
 }
 
@@ -173,7 +173,7 @@ function handlePlaylistsResponse() {
     refreshAccessToken()
   } else {
     console.log(this.responseText)
-    alert(this.responseText)
+    // alert(this.responseText)
   }
 }
 
@@ -258,7 +258,7 @@ function handleApiResponse() {
     refreshAccessToken()
   } else {
     console.log(this.responseText)
-    alert(this.responseText)
+    // alert(this.responseText)
   }
 }
 
@@ -284,7 +284,7 @@ function handleTracksResponse() {
     refreshAccessToken()
   } else {
     console.log(this.responseText)
-    alert(this.responseText)
+    // alert(this.responseText)
   }
 }
 
@@ -329,6 +329,6 @@ function handleCurrentlyPlayingResponse() {
     refreshAccessToken()
   } else {
     console.log(this.responseText)
-    alert(this.responseText)
+    // alert(this.responseText)
   }
 }
